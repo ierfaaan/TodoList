@@ -1,0 +1,24 @@
+.header__logo{
+    width: 100%;
+    text-align: center;
+}
+.header__text{
+    text-align: center;
+    font-size: 20px;
+    transition: 1s color;
+}
+.header__icon{
+    position: absolute;
+    font-size: 28px;
+    color: #Fff;
+    cursor: pointer;
+   
+}
+.header__icon--mode{
+    left: 0;
+    top: 20px;
+}
+.header__icon--filter{
+    right: 0;
+    top: 20px;
+}

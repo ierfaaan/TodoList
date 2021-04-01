@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;900&display=swap');
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+:root{
+    --bgColor: #fff;
+    --textColor : #333;
+    --filterColor : #9980fa;
+    --filterTextColor : #fff;
+    --formColor : #fff;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+html{
+    box-sizing: border-box;
+    font-size: 10px;
+}
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins','vazir', sans-serif;
+    line-height: 36px;
+    font-weight: 500;
+    font-size: 1.6rem;
+    background-image: url("assets/img/bg.svg");
+}
+h1,h2,h3,h4,p{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.app{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+.container{
+    width: 400px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+    position: relative;
+    padding-bottom: 70px;
+    overflow: hidden;
+}
+.header{
+    padding: 15px 30px;
+    margin: 0 20px;
+    position: relative;
+    z-index: 3001;
+    border-bottom: 1px dashed var(--textColor);
+    transition: 1s border;
+}
+.main{
+    margin: 10px 0 -10px;
+    margin-right: 12px;
+    padding: 0 20px;
+    overflow-y:auto ;
+    padding-right: 10px;
+    position: relative;
+    z-index: 200;
+}
+.footer{
+    width: 100%;
+    position: absolute;
+    bottom: 5px;
+    z-index: 300;
+}
+.helper-layout-filter,.helper-layout-moon{
+    display: block;
+    position: absolute;
+    right:8px;
+    top: 8px;
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    background-color: var(--filterColor);
+    transition: 1.3s transform;
+    z-index: 3000;
+    transform: scale(1);
+    width: 50px;
+    height: 50px;
+}
+.helper-layout-moon{
+    background-color: #333;
+    right:unset;
+    top: 9px;
+    left: 8px;
+    z-index: 100;
+}
+.icon-bar{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 8px;
+    right:8px;
+    border-radius: 50%;
+    background-color: transparent;
+    pointer-events: none;
+    z-index: 4000;
+}

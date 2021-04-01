@@ -1,0 +1,37 @@
+.filter-menu{
+    z-index: 6000;
+    position: relative;
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    animation: fade-in 2s 1;
+}
+.filter-menu li {
+    font-size: 18px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+    padding: 10px 0;
+}
+.filter-menu li label{
+    color: var(--filterTextColor);
+    cursor: pointer;
+    width: 90%;
+}
+.filter-menu li input{
+    width: 18px;
+    height: 18px;
+    border: none;
+    outline: none;
+}
+.filter-menu li:not(:last-child){
+    border-bottom: 1px solid #7e61f0;
+}
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
