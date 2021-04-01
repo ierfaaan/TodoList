@@ -4,7 +4,7 @@
 
 | White | Black |
 | :---: | :---: |
-| ![HeyBug Todo App](demo-white.png) | ![HeyBug Todo App](demo-black.png) | 
+| [![HeyBug Todo App](demo-white.png)](https://ierfaaan.github.io/TodoList/) | [![HeyBug Todo App](demo-black.png)](https://ierfaaan.github.io/TodoList/) | 
 
 ## Using
 
