@@ -1,5 +1,7 @@
 # HeyBug Todo App
 
+You can watch preview of this project [here](https://ierfaaan.github.io/TodoList/) and work with it.
+
 ## Demo Screenshots
 
 | White | Black |
