@@ -1,24 +1,27 @@
 import logo from "../../assets/img/1.png";
 import { BiMoon, BiSun, BiFilterAlt } from "react-icons/bi";
 import "./Header.css";
-const Header = ({ filter, openFilter, changeMode, night }) => {
+import { ThemContext } from "../../context/ThemContext";
+import { useContext } from "react";
+const Header = ({ toggleFilterMenu, filterMenu }) => {
+  const { darkThem, toggleThem } = useContext(ThemContext);
   return (
     <>
-      {!night ? (
+      {!darkThem ? (
         <BiMoon
           className="header__icon header__icon--mode"
-          onClick={changeMode}
+          onClick={toggleThem}
         />
       ) : (
         <BiSun
           className="header__icon header__icon--mode"
-          onClick={changeMode}
+          onClick={toggleThem}
         />
       )}
 
       <BiFilterAlt
         className="header__icon header__icon--filter"
-        onClick={filter}
+        onClick={toggleFilterMenu}
       />
       <h1 className="header__logo">
         <img src={logo} width="140" alt="" />
@@ -26,7 +29,7 @@ const Header = ({ filter, openFilter, changeMode, night }) => {
       <p
         className="header__text"
         style={
-          openFilter
+          filterMenu
             ? { color: "var(--filterTextColor)" }
             : { color: "var(--textColor)" }
         }

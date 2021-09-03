@@ -62,7 +62,8 @@ color: #aaa;
 }
 .empty h2{
     color: var(--textColor);
+		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     transition: color 1s;
-    font-size: 20px;
+    font-size: 27px;
     z-index: 1000;
 }

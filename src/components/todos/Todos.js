@@ -1,34 +1,29 @@
 import "./Todos.css";
 import Todo from "./Todo";
 import checkListImg from "../../assets/img/light.png";
-function Todos({
-  tasks,
-  night,
-  deletePa,
-  editPa,
-  taskEditing,
-  edit,
-  cancellEditPa,
-  checkingPa,
-}) {
+import { TodoContext } from "../../context/TodoContext";
+import { useContext } from "react";
+import { filterTodos } from "../../helper";
+function Todos({ FilterBy, changeTrue, changeFalse }) {
+  const { tasks } = useContext(TodoContext);
+
+  let tasksWithFilter = filterTodos(tasks, FilterBy);
+
   return (
     <main className="main" style={{ height: "280px" }}>
       <div className="todos">
-        {tasks.length > 0 ? (
-          tasks.map((task) => {
+        {tasksWithFilter.length > 0 ? (
+          tasksWithFilter.map((task) => {
             return (
               <Todo
                 text={task.text}
                 id={task.id}
                 key={task.id}
-                category={task.category}
-                deleteCh={deletePa}
-                editCh={editPa}
-                editing={taskEditing.id === task.id ? true : false}
-                edit={edit}
                 checked={task.checked}
-                cancellEditCh={cancellEditPa}
-                checkingCh={checkingPa}
+                category={task.category}
+                editing={task.editing}
+                changeTrue={changeTrue}
+                changeFalse={changeFalse}
               />
             );
           })
