@@ -1,11 +1,11 @@
-import "./Todos.css";
 import Todo from "./Todo";
+import { useTodo } from "../../store/context/TodoContext";
 import checkListImg from "../../assets/img/light.png";
-import { TodoContext } from "../../context/TodoContext";
-import { useContext } from "react";
 import { filterTodos } from "../../helper";
+import "./Todos.css";
+
 function Todos({ FilterBy, changeTrue, changeFalse }) {
-  const { tasks } = useContext(TodoContext);
+  const { tasks } = useTodo();
 
   let tasksWithFilter = filterTodos(tasks, FilterBy);
 

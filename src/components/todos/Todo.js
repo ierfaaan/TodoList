@@ -1,7 +1,12 @@
-import "./Todos.css";
 import { BiEdit, BiTrashAlt, BiPlusCircle } from "react-icons/bi";
-import { TodoContext } from "../../context/TodoContext";
-import { useContext } from "react";
+import {
+  checkedTodo,
+  deleteTodo,
+  editingTodo,
+} from "../../store/actions/TodoActions";
+import { useTodo } from "../../store/context/TodoContext";
+import "./Todos.css";
+
 function Todo({
   text,
   category,
@@ -11,14 +16,14 @@ function Todo({
   changeFalse,
   changeTrue,
 }) {
-  const { dispatch } = useContext(TodoContext);
+  const { dispatch } = useTodo();
   return (
     <div className="todo">
       <span className="category" style={{ backgroundColor: category }}></span>
       <p
         className="todo__text"
         onClick={() => {
-          dispatch({ type: "CHECK_TODO", payload: { id } });
+          dispatch(checkedTodo(id));
         }}
         style={checked ? { color: "#ccc" } : { color: "var(--textColor)" }}
       >
@@ -34,7 +39,7 @@ function Todo({
           <BiPlusCircle
             className="settings__icon cancell"
             onClick={() => {
-              dispatch({ type: "EDITING_TODO", payload: { id } });
+              dispatch(editingTodo(id));
               changeFalse();
             }}
           />
@@ -42,7 +47,7 @@ function Todo({
           <BiEdit
             className="settings__icon"
             onClick={() => {
-              dispatch({ type: "EDITING_TODO", payload: { id } });
+              dispatch(editingTodo(id));
               changeTrue();
             }}
           />
@@ -50,7 +55,7 @@ function Todo({
         <BiTrashAlt
           className="settings__icon"
           onClick={() => {
-            dispatch({ type: "DELETE_TODO", payload: { id } });
+            dispatch(deleteTodo(id));
           }}
           style={editing && { pointerEvents: "none" }}
         />

@@ -1,21 +1,22 @@
-import logo from "../../assets/img/1.png";
 import { BiMoon, BiSun, BiFilterAlt } from "react-icons/bi";
+
+import logo from "../../assets/img/1.png";
 import "./Header.css";
-import { ThemContext } from "../../context/ThemContext";
-import { useContext } from "react";
+import { useTheme } from "../../store/context/ThemeContext";
+
 const Header = ({ toggleFilterMenu, filterMenu }) => {
-  const { darkThem, toggleThem } = useContext(ThemContext);
+  const { darkTheme, toggleTheme } = useTheme();
   return (
     <>
-      {!darkThem ? (
+      {!darkTheme ? (
         <BiMoon
           className="header__icon header__icon--mode"
-          onClick={toggleThem}
+          onClick={toggleTheme}
         />
       ) : (
         <BiSun
           className="header__icon header__icon--mode"
-          onClick={toggleThem}
+          onClick={toggleTheme}
         />
       )}
 

@@ -1,5 +1,3 @@
-import { useContext } from "react";
-
 import "./App.css";
 
 import FilterMenu from "./components/filter/FilterMenu";
@@ -7,19 +5,19 @@ import Form from "./components/form/Form";
 import Header from "./components/header/Header";
 import Todos from "./components/todos/Todos";
 
-import { ThemContext } from "./context/ThemContext";
 import { ChangeThemColor } from "./helper";
 
 import useFilter from "./hooks/useFilter";
 import useToggle from "./hooks/useToggle";
+import { useTheme } from "./store/context/ThemeContext";
 
 function App() {
-  const { darkThem } = useContext(ThemContext);
+  const { darkTheme } = useTheme();
   const [filterMenu, toggleFilterMenu] = useToggle(false);
   const [Editing, toggleEditing, changeTrue, changeFalse] = useToggle(false);
   const [FilterBy, setFilterBy] = useFilter("all");
 
-  ChangeThemColor(darkThem);
+  ChangeThemColor(darkTheme);
 
   return (
     <div className="app">
@@ -36,7 +34,7 @@ function App() {
           <div
             className="helper-layout-moon"
             style={
-              darkThem ? { transform: "scale(25)" } : { transform: "scale(1)" }
+              darkTheme ? { transform: "scale(25)" } : { transform: "scale(1)" }
             }
           ></div>
         </div>

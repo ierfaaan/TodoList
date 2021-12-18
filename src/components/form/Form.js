@@ -1,9 +1,14 @@
-import { useContext, useEffect, useState } from "react";
-import { TodoContext } from "../../context/TodoContext";
+import { useEffect, useState } from "react";
+import {
+  addTodo,
+  editingTodo,
+  editTodo,
+} from "../../store/actions/TodoActions";
+import { useTodo } from "../../store/context/TodoContext";
 import "./Form.css";
-function Form({ Editing, toggleEditing }) {
-  const { tasks, dispatch } = useContext(TodoContext);
 
+function Form({ Editing, toggleEditing }) {
+  const { tasks, dispatch } = useTodo();
   const [idEditing, setidEditing] = useState(null);
   let editingObject;
 
@@ -25,14 +30,11 @@ function Form({ Editing, toggleEditing }) {
   const submitHandler = (event) => {
     event.preventDefault();
     if (Editing) {
-      dispatch({
-        type: "EDIT_TODO",
-        payload: { id: idEditing, text, category },
-      });
-      dispatch({ type: "EDITING_TODO", payload: { id: idEditing } });
+      dispatch(editTodo(idEditing, text, category));
+      dispatch(editingTodo(idEditing));
       toggleEditing();
     } else {
-      dispatch({ type: "ADD_TODO", payload: { text, category } });
+      dispatch(addTodo(text, category));
     }
   };
 

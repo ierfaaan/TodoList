@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import ThemContextProvider from "./context/ThemContext";
-import ToDoContextProvider from "./context/TodoContext";
+import { ThemeContextProvider } from "./store/context/ThemeContext";
+import { ToDoContextProvider } from "./store/context/TodoContext";
 ReactDOM.render(
-  <ThemContextProvider>
+  <ThemeContextProvider>
     <ToDoContextProvider>
       <App />
     </ToDoContextProvider>
-  </ThemContextProvider>,
+  </ThemeContextProvider>,
   document.getElementById("root")
 );
